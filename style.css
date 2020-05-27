@@ -1,0 +1,42 @@
+ul.list-group {
+    list-style-type: circle;
+}
+
+#learnMoreButton {
+    margin: 20px;
+
+}
+
+#list {
+    margin: 20px;
+}
+
+.productSummary,
+.productDetails {
+    height: 4500px;
+
+}
+
+.productSummary {
+    background-color: aqua;
+
+
+
+}
+
+.productDetails {
+    background-color: orange;
+}
+
+.productSelection {
+    height: 600px;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+select.form-control[multiple],
+select.form-control[size] {
+    height: 500px;
+}

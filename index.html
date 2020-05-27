@@ -1,70 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>My BPCC App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Boostrap CSS only -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>My BPCC App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  </head>
-  <body>
-<h1>Welcome to Open Banking Product API Comparator</h1>
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <!-- Boostrap CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+
+
+  <div class="jumbotron">
+    <h1 class="display-4">Westpac Open Banking Product API</h1>
+    <p class="lead">This is the website for Westpac product infomation.</p>
+    <hr class="my-4">
+    <p>The Westpac Open Banking Product API enables third parties to retrieve information about products that Westpac
+      currently offers. It is designed and documented to support the Australian Consumer Data Standards.</p>
+    <a class="btn btn-primary btn-lg" id='learnMoreButton'
+      href="https://consumerdatastandardsaustralia.github.io/standards/#introduction" target="_blank"
+      role="button">Learn more</a>
+    <p>Our Product API covers the following products for both retail and business customers:</p>
+    <ul class="list-group" id="list">
+      <li>Transaction Accounts</li>
+      <li>Savings Accounts</li>
+      <li>Term Deposits</li>
+      <li>Credit Cards</li>
+    </ul>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div>
+
+
+    <div class="row">
+
+      <div class="productSummary col-6">
+        <h1>Summary View of Product</h1>
+        <p>a list of product with summary view</p>
+
+
+
+        <form>
+
+
+          <div class="form-group">
+            <label for="productSelection">select a product from the list and click on submit</label>
+            <select multiple class="form-control" id="productSelection">
+
+            </select>
+          </div>
+
+          <div class="productID">
+            <p>product summary view</p>
+            <ul id="productSummaryView">
+
+            </ul>
+          </div>
+
+
+          <button type="button" class="btn btn-success" id="submitButton">Submit</button>
+          <button type="button" class="btn btn-dark" id="cancelButton">Cancel</button>
+
+
+
+        </form>
+
+      </div>
+
+      <div class="productDetails col-6">
+        <h1>Detailed View of a Selected Product</h1>
+        <p>Supplementary information about the product</p>
+        <div id="placeholderOnly"></div>
+      </div>
+
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-
-    <button type="submit" class="btn btn-primary">ANZ</button>
- <div id="ANZResponse"></div>
-
-    <button type="submit" class="btn btn-danger">Westpac</button>
-    <div id="WBCResponse"></div>
 
 
-    <button type="submit" class="btn btn-warning">CBA</button>
-    <div id="CBAResponse"></div>
 
+  </div>
 
-    <button type="submit" class="btn btn-dark">NAB</button>
-    <div id="NABResponse"></div>
-
-
-  </form>
+  <!-- Content here -->
+  </div>
 
 
 
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <scripts
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+  <scripts src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+      </script>
 
     <script src="app.js"></script>
 
-  </body>
+</body>
+
 </html>
