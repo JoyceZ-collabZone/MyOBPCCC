@@ -8,3 +8,11 @@ The app will provide CCC capabilities:
 1) check compliance of big 4 banks
 2) compare the product rate
 3) future scope, competition, offerings for customer 
+
+bootstrap form / options 
+option value for submit button
+called 2 apis one for summary view, one for detailed view
+jquery used to create and manipulate DOM elemenmt
+
+next step is to render data properly on both summary and detailed view
+
