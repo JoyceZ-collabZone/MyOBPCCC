@@ -19,7 +19,7 @@
 
   <div class="jumbotron">
     <h1 class="display-4">Westpac Open Banking Product API</h1>
-    <p class="lead">This is the website for Westpac product infomation.</p>
+    <p class="lead">This is the website for Westpac product information.</p>
     <hr class="my-4">
     <p>The Westpac Open Banking Product API enables third parties to retrieve information about products that Westpac
       currently offers. It is designed and documented to support the Australian Consumer Data Standards.</p>
@@ -51,8 +51,8 @@
     <div class="row">
 
       <div class="productSummary col-6">
-        <h1>Summary View of Product</h1>
-        <p>a list of product with summary view</p>
+        <h1 class="heading">Summary View of Product</h1>
+        <p class="heading">A list of product with summary view</p>
 
 
 
@@ -60,7 +60,7 @@
 
 
           <div class="form-group">
-            <label for="productSelection">select a product from the list and click on submit</label>
+            <label class="heading" for="productSelection">Select a product from the list and click on submit</label>
             <select multiple class="form-control" id="productSelection">
 
             </select>
@@ -83,7 +83,7 @@
 
       </div>
 
-      <div class="productDetails col-6">
+      <div class="productDetails col-6" id="productDetailsContainer">
         <h1>Detailed View of a Selected Product</h1>
         <p>Supplementary information about the product</p>
         <div id="placeholderOnly"></div>

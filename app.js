@@ -89,6 +89,7 @@ $(() => {
   });
   $("#cancelButton").click(() => {
     console.log("button cancelled");
+    $("#placeholderOnly").empty();
   });
 });
 
