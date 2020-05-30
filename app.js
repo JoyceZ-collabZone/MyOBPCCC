@@ -1,5 +1,6 @@
 // define product at the top, scoping, variable is visible in functions, inside variables first before reading outside
 let products = [];
+// let productFees = [];
 
 async function WestpacProductAPI() {
   // let products = null;
@@ -19,8 +20,6 @@ const apiPromise = WestpacProductAPI();
 apiPromise.then((response) => {
   console.log(response);
   products = response.data.products;
-  // console.log(arrayOfWBCProduct);
-  // console.log(JSON.stringify(response));
   returnSingleArrayItem(products);
 });
 
@@ -57,6 +56,7 @@ function getProductDetails(productId) {
       "x-min-v": 1,
     },
   });
+
   return promiseObject;
 }
 
@@ -66,6 +66,7 @@ $(() => {
     $("#productName").children().remove();
     $("#productCategory").children().remove();
     $("#productDescription").children().remove();
+    $("#productLastUpdated").children().remove();
     console.log("test on form select event", event);
     const selectedProductID = event.currentTarget.value; // this is string, since it is coming from DOM, this is a browser event object
     console.log("selectedProductID is ", selectedProductID);
@@ -82,9 +83,49 @@ $(() => {
       $("#productName").append(`<p>${findProduct.name}</p>`);
       $("#productCategory").append(`<p>${findProduct.productCategory}</p>`);
       $("#productDescription").append(`<p>${findProduct.description}</p>`);
+      $("#productLastUpdated").append(`<p>${findProduct.lastUpdated}</p>`);
     }
   });
 });
+
+{
+  /* <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <small>Donec id elit non mi porta.</small>
+  </a>
+</div> */
+}
+
+function displaySelectedProductDetails(fees, eligibility, features) {
+  for (let i = 0; i < fees.length; i++) {
+    let list = "";
+    for (const property in fees[i]) {
+      list += `<li><label>${property}:</label> ${fees[i][property]}</li>`;
+    }
+
+    // console.log("fee items is ", feeElement);
+    $("#feeContainer").append(
+      `<li id="feeListing" class="liFormat"><ul>${list}</li>`
+    );
+  }
+  for (let i = 0; i < eligibility.length; i++) {
+    $("#eligibilityContainer").append(
+      `<li id="eligibilityListing" class="liFormat">${Object.values(
+        eligibility[i]
+      ).join(", ")}</li>`
+    );
+  }
+  for (let i = 0; i < features.length; i++) {
+    $("#featuresContainer").append(
+      `<li id="featureListing" class="liFormat">${features[i].featureType}</li>`
+    );
+  }
+}
 
 $("#submitButton").click(() => {
   console.log("button clicked");
@@ -92,8 +133,18 @@ $("#submitButton").click(() => {
   getProductDetails(productID)
     .then((productDetailsResponse) => {
       console.log(productDetailsResponse);
-      const responseToString = JSON.stringify(productDetailsResponse);
-      $("#placeholderOnly").append(`<div>${responseToString}</div>`);
+      // const responseToString = JSON.stringify(productDetailsResponse);
+      // $("#placeholderOnly").append(`<div>${responseToString}</div>`);
+      const promiseObjectArrayReturned = productDetailsResponse.data;
+      console.log("promise object returned", promiseObjectArrayReturned);
+      const productFees = promiseObjectArrayReturned.fees;
+      const productEligibility = promiseObjectArrayReturned.eligibility;
+      const productFeatures = promiseObjectArrayReturned.features;
+      displaySelectedProductDetails(
+        productFees,
+        productEligibility,
+        productFeatures
+      );
     })
     .catch((error) => {
       console.log(error);
@@ -107,14 +158,7 @@ $("#submitButton").click(() => {
 });
 $("#cancelButton").click(() => {
   console.log("button cancelled");
-  $("#placeholderOnly").empty();
+  $("#feeContainer").children().remove();
+  $("#eligibilityContainer").children().remove();
+  $("#featuresContainer").children().remove();
 });
-
-// $(() => {
-//   $(`#${product.productId}`).click(() => {getProductDetails(productId)
-//     console.log("button clicked");
-//   });
-//   $("#cancelButton").click(() => {
-//     console.log("button cancelled");
-//   });
-// });

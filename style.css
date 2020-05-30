@@ -13,19 +13,25 @@ ul.list-group {
 
 .productSummary,
 .productDetails {
-    height: 4500px;
+
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 
 }
 
 .productSummary {
-    background-color: aqua;
+    background-color: greenyellow;
+
 
 
 
 }
 
 .productDetails {
-    background-color: orange;
+    background-color: rgba(255, 166, 0, 0.685);
+    height: 4500px;
 }
 
 .productSelection {
@@ -46,10 +52,46 @@ select.form-control[size] {
 }
 
 .summaryView {
-    padding: 10px;
+    padding: 2px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+
 }
 
 .productID {
     margin-left: 5px;
     padding-left: 5px;
+}
+
+.detailsContainer {
+    font-size: large;
+    color: white;
+    border: 1px solid;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.liFormat {
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: left;
+    flex-wrap: wrap;
+}
+
+.form-control {
+
+    color: black;
+}
+
+p {
+    font-style: italic;
+    color: rgb(0, 183, 255);
 }
