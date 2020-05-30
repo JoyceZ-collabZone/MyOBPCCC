@@ -44,3 +44,12 @@ select.form-control[size] {
 .heading {
     margin: 10px;
 }
+
+.summaryView {
+    padding: 10px;
+}
+
+.productID {
+    margin-left: 5px;
+    padding-left: 5px;
+}
